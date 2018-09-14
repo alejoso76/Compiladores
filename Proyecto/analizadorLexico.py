@@ -224,10 +224,45 @@ def t_VOID(t):
     r'void'
     return t   
 
+def t_AS(t):
+    r'as'
+    return t
+
+def t_SWITCH(t):
+    r'switch'
+    return t
+
+def t_ENDSWITCH(t):
+    r'endswitch'
+    return t
+
+def t_FUNCTION(t):
+    r'function'
+    return t
+
+def t_PHP(t):
+    r'<?php'
+    return t
+
+def t_CHR(t):
+    r'chr'
+    return t
+    
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
-    r'$\w+(_\d\w)*'
+    r'\$w+(_\d\w)*'
     return t
+
+#Definicion de comentario de una linea
+def t_COMMENTONELINE(t):
+    r'\//(d\w)*\n'  #FALTA AGREGAR SIMBOLOS
+    return t
+
+#Definicion de comentario de una linea
+def t_COMMENTONELINE(t):
+    r'\*(d\w)*/*'  #FALTA AGREGAR SIMBOLOS
+    return t
+
 
 
 
