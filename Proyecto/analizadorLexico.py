@@ -47,16 +47,16 @@ tokens = {
 
     #Simbolos
     'LESS', # <
-    'LESSE', # <=
+    'LESSE', # <=   NO SE SI VAYA
     'GREAT', # >
-    'GREATE', # >=
+    'GREATE', # >=  NO SE SI VAYA
     'HASHTAG', 
     'SLASH', 
     'OQUESTION', # ¿
     'CQUESTION', # ?
     'PERCENTAGE',
     'EQUAL',
-    'EQUALE', # ==
+    'EQUALE', # ==   NO SE SI VAYA
     'PLUS',
 
     'UNDERSCORE', #Guion bajo _
@@ -66,31 +66,60 @@ tokens = {
     'SEMICOLON',
     'DQUOTATION', #Comillas dobles "
     'SQUOTATION', #Comillas simples '
-    'OSBRACKET', #Llave apertura [
+    'OSBRACKET', #Llave apertura [   OPENING SQUARE
     'CSBRACKET', #Llave cierre ]
-    'OSBRACKET', #Llave apertura {
-    'CSBRACKET', #Llave cierre }
+    'OCBRACKET', #Llave apertura { OPENING CURLY 
+    'CCBRACKET', #Llave cierre }
     'DOLLAR', #Simbolo de peso $
     'AMPERSAND', 
     'OPARENTHESIS', #Parentesis apertura (
     'CPARENTHESIS', #Parentesis apertura )
     'TIMES', #Signo de multiplicacion *
-    'ANDE', # &=
-    'BOOLAND', # &&
-    'BOOLOR', # ||
-    'COMMENTO', # //
-    'COMMENTMO', # /*
-    'COMMENTMC', # */
-
-
-
+    'ANDE', # &=    NO SE SI VAYA
+    'BOOLAND', # &&  NO SE SI VAYA
+    'BOOLOR', # ||  NO SE SI VAYA
+    'COMMENTO', # //  NO SE SI VAYA
+    #'COMMENTMO',  /*  NO SE SI VAYA
+    #'COMMENTMC',  */  NO SE SI VAYA
 
     #Otros
     'ID',
     'NUMBER',
-    
-
 }
+
+t_LESS='<'
+t_LESSE='<='  #NO SE SI VAYA
+t_GREAT='>'
+t_GREATE='>=' #NO SE SI VAYA
+t_HASHTAG='#'
+t_SLASH='/'
+t_OQUESTION='¿'
+t_CQUESTION='\?'
+t_PERCENTAGE='%'
+t_EQUAL='='
+t_EQUALE='==' #NO SE SI VAYA
+t_PLUS='\+'
+t_UNDERSCORE='_'
+t_SCORE='-'
+t_POINT='.'
+t_COMMA=','
+t_SEMICOLON=';'
+t_DQUOTATION='"'
+t_SQUOTATION='\''
+t_OSBRACKET='['
+t_CSBRACKET=']'
+t_OCBRACKET='{'
+t_CCBRACKET='}'
+t_DOLLAR='$'
+t_AMPERSAND='&'
+t_OPARENTHESIS='('
+t_CPARENTHESIS=')'
+t_TIMES='\*'
+t_ANDE='&='  #NO SE SI VAYA
+t_BOOLAND='&&' #NO SE SI VAYA
+t_BOOLOR='||'
+
+
 
 def t_IF(t):
     r'if'
@@ -262,14 +291,6 @@ def t_COMMENTONELINE(t):
 def t_COMMENTMULTIPLELINE(t):
     r'\*(d\w)*/*'  #FALTA AGREGAR SIMBOLOS
     return t
-
-
-
-
-
-
-
-
 
 
 def t_NUMBER(t):
