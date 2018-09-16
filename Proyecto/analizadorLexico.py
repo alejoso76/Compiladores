@@ -268,7 +268,7 @@ def t_FUNCTION(t):
     return t
 
 def t_PHPDECLARATION(t):
-    r'<?php'
+    r'<\?php'
     return t
 
 def t_CHR(t):
@@ -282,14 +282,13 @@ def t_VARIABLE(t):
 
 #Definicion de comentario de una linea
 def t_COMMENTONELINE(t):
-    r'\//(d\w)*\n'  #FALTA AGREGAR SIMBOLOS
+    r'\//(d\w\ \.\-\_\+\*\#\?)*\n'  #FALTA AGREGAR SIMBOLOS
     return t
 
 #Definicion de comentario de una linea
 def t_COMMENTMULTIPLELINE(t):
-    r'\*(d\w)*/*'  #FALTA AGREGAR SIMBOLOS
+    r'\*(d\w\ \.\-\_\+\*\#\?)*/*'  #FALTA AGREGAR SIMBOLOS
     return t
-
 
 def t_NUMBER(t):
     r'\d+(\.\d+)?'
