@@ -39,7 +39,7 @@ tokens = {
     'SWITCH',
     'ENDSWITCH',
     'FUNCTION',
-    'PHP',
+    'PHPDECLARATION',
     'CHR',
     'VARIABLE', # $VAR
     'COMMENTONELINE',
@@ -240,14 +240,14 @@ def t_FUNCTION(t):
     r'function'
     return t
 
-def t_PHP(t):
+def t_PHPDECLARATION(t):
     r'<?php'
     return t
 
 def t_CHR(t):
     r'chr'
     return t
-    
+  
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
     r'\$w+(_\d\w)*'
@@ -259,9 +259,10 @@ def t_COMMENTONELINE(t):
     return t
 
 #Definicion de comentario de una linea
-def t_COMMENTONELINE(t):
+def t_COMMENTMULTIPLELINE(t):
     r'\*(d\w)*/*'  #FALTA AGREGAR SIMBOLOS
     return t
+
 
 
 
