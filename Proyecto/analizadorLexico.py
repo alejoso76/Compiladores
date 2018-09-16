@@ -1,7 +1,7 @@
 import ply.lex as lex
 import sys
 
-tokens = {
+tokens = (
     #Palabras reservadas
     'IF',
     'ELSE',
@@ -52,8 +52,8 @@ tokens = {
     'GREATE', # >=  NO SE SI VAYA
     'HASHTAG', 
     'SLASH', 
-    'OQUESTION', # ¿
-    'CQUESTION', # ?
+    #'OQUESTION', 
+    'CQUESTION', 
     'PERCENTAGE',
     'EQUAL',
     'EQUALE', # ==   NO SE SI VAYA
@@ -81,46 +81,48 @@ tokens = {
     'COMMENTO', # //  NO SE SI VAYA
     #'COMMENTMO',  /*  NO SE SI VAYA
     #'COMMENTMC',  */  NO SE SI VAYA
+    'DOUBLEPOINTS',
+    'SPACE',
 
     #Otros
     'ID',
     'NUMBER',
-}
+)
 
-t_LESS='<'
-t_LESSE='<='  #NO SE SI VAYA
-t_GREAT='>'
-t_GREATE='>=' #NO SE SI VAYA
-t_HASHTAG='#'
-t_SLASH='/'
-t_OQUESTION='¿'
-t_CQUESTION='\?'
-t_PERCENTAGE='%'
-t_EQUAL='='
-t_EQUALE='==' #NO SE SI VAYA
-t_PLUS='\+'
-t_UNDERSCORE='_'
-t_SCORE='-'
-t_POINT='.'
-t_COMMA=','
-t_SEMICOLON=';'
-t_DQUOTATION='"'
-t_SQUOTATION='\''
-t_OSBRACKET='['
-t_CSBRACKET=']'
-t_OCBRACKET='{'
-t_CCBRACKET='}'
-t_DOLLAR='$'
-t_AMPERSAND='&'
-t_OPARENTHESIS='('
-t_CPARENTHESIS=')'
-t_TIMES='\*'
-t_ANDE='&='  #NO SE SI VAYA
-t_BOOLAND='&&' #NO SE SI VAYA
-t_BOOLOR='||'
+t_LESS=r'<'
+t_LESSE=r'<='  #NO SE SI VAYA
+t_GREAT=r'>'
+t_GREATE=r'>=' #NO SE SI VAYA
+t_HASHTAG=r'\#'
+t_SLASH=r'/'
+t_CQUESTION=r'\?'
+t_PERCENTAGE=r'%'
+t_EQUAL=r'='
+t_EQUALE=r'==' #NO SE SI VAYA
+t_PLUS=r'\+'
+t_UNDERSCORE=r'_'
+t_SCORE=r'-'
+t_POINT=r'\.'
+t_COMMA=r','
+t_SEMICOLON=r';'
+t_DQUOTATION=r'"'
+t_SQUOTATION=r'\''
+t_OSBRACKET=r'\['
+t_CSBRACKET=r'\]'
+t_OCBRACKET=r'\{'
+t_CCBRACKET=r'\}'
+t_DOLLAR=r'\$'
+t_AMPERSAND=r'&'
+t_OPARENTHESIS=r'\('
+t_CPARENTHESIS=r'\)'
+t_TIMES=r'\*'
+t_ANDE=r'&='  #NO SE SI VAYA
+t_BOOLAND=r'&&' #NO SE SI VAYA
+t_BOOLOR=r'\|\|'
+t_DOUBLEPOINTS=r':'
+t_SPACE=r'\ '
 
-
-
+#----------------------------------------------------------------------------------
 def t_IF(t):
     r'if'
     return t
@@ -169,10 +171,6 @@ def t_RETURN(t):
     r'return'
     return t
 
-def t_PROTECTED(t):
-    r'protected'
-    return t   
-
 def t_AND(t):
     r'and'
     return t   
@@ -181,7 +179,7 @@ def t_OR(t):
     r'or'
     return t   
  
- def t_NOT(t):
+def t_NOT(t):
     r'not'
     return t   
 
@@ -318,6 +316,7 @@ def test(data, lexer):
 			break
 		print (tok)
 
+
 lexer = lex.lex()
 
  
@@ -325,7 +324,7 @@ if __name__ == '__main__':
 	if (len(sys.argv) > 1):
 		fin = sys.argv[1]
 	else:
-		fin = 'calc.c'
+		fin = 'pruebaPHP.php'
 	f = open(fin, 'r')
 	data = f.read()
 	print (data)
