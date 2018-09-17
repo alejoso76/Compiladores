@@ -47,16 +47,16 @@ tokens = (
 
     #Simbolos
     'LESS', # <
-    'LESSE', # <=   NO SE SI VAYA
+    'LESSE', # <=  #SI VA
     'GREAT', # >
-    'GREATE', # >=  NO SE SI VAYA
+    'GREATE', # >=  #SI VA
     'HASHTAG', 
     'SLASH', 
     #'OQUESTION', 
     'CQUESTION', 
     'PERCENTAGE',
     'EQUAL',
-    'EQUALE', # ==   NO SE SI VAYA
+    'EQUALE', # ==  #SI VA
     'PLUS',
 
     'UNDERSCORE', #Guion bajo _
@@ -75,12 +75,11 @@ tokens = (
     'OPARENTHESIS', #Parentesis apertura (
     'CPARENTHESIS', #Parentesis apertura )
     'TIMES', #Signo de multiplicacion *
-    'ANDE', # &=    NO SE SI VAYA
-    'BOOLAND', # &&  NO SE SI VAYA
-    'BOOLOR', # ||  NO SE SI VAYA
-    'COMMENTO', # //  NO SE SI VAYA
-    #'COMMENTMO',  /*  NO SE SI VAYA
-    #'COMMENTMC',  */  NO SE SI VAYA
+    'BOOLAND', # &&  SI VA
+    'BOOLOR', # || SI VA
+    'COMMENTO', # // SI VA
+    'COMMENTMO',  #/* SI VA
+    'COMMENTMC',  #*/   SI VA
     'DOUBLEPOINTS',
     'SPACE',
 
@@ -90,9 +89,9 @@ tokens = (
 )
 
 t_LESS=r'<'
-t_LESSE=r'<='  #NO SE SI VAYA
+t_LESSE=r'<='  
 t_GREAT=r'>'
-t_GREATE=r'>=' #NO SE SI VAYA
+t_GREATE=r'>='
 t_HASHTAG=r'\#'
 t_SLASH=r'/'
 t_CQUESTION=r'\?'
@@ -116,8 +115,7 @@ t_AMPERSAND=r'&'
 t_OPARENTHESIS=r'\('
 t_CPARENTHESIS=r'\)'
 t_TIMES=r'\*'
-t_ANDE=r'&='  #NO SE SI VAYA
-t_BOOLAND=r'&&' #NO SE SI VAYA
+t_BOOLAND=r'&&'
 t_BOOLOR=r'\|\|'
 t_DOUBLEPOINTS=r':'
 t_SPACE=r'\ '
