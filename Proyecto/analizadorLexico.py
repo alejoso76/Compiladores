@@ -279,6 +279,9 @@ def t_VARIABLE(t):
     return t
 
 #Definicion de comentario de una linea
+'''el simbolo . significa cualquier caracter no se retorna porque necesitamos que nuestro codigo no reconozca los comentario
+sino que los ignore
+'''
 def t_COMMENTONELINE(t):
     r'\//(d\w\ \.\-\_\+\*\#\?)*\n'  #FALTA AGREGAR SIMBOLOS
     return t
