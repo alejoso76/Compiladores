@@ -1,3 +1,7 @@
+<?php//prueba!"#$%&/()=?¡{}
+
+/*prueba 2!"#$%&/()=?¡'¿'0q211*/
+?>
 <?php
 session_start();
 echo"<center>";

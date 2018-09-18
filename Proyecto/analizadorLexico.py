@@ -97,7 +97,7 @@ t_SLASH=r'/'
 t_CQUESTION=r'\?'
 t_PERCENTAGE=r'%'
 t_EQUAL=r'='
-t_EQUALE=r'==' #NO SE SI VAYA
+t_EQUALE=r'==' #si va
 t_PLUS=r'\+'
 t_UNDERSCORE=r'_'
 t_SCORE=r'-'
@@ -279,16 +279,16 @@ def t_VARIABLE(t):
     return t
 
 #Definicion de comentario de una linea
-'''el simbolo . significa cualquier caracter no se retorna porque necesitamos que nuestro codigo no reconozca los comentario
-sino que los ignore
-'''
+'''el simbolo . significa cualquier caracter'''
 def t_COMMENTONELINE(t):
-    r'\//(d\w\ \.\-\_\+\*\#\?)*\n'  #FALTA AGREGAR SIMBOLOS
-    return t
+    r'\//.*'  #FALTA AGREGAR SIMBOLOS
+    #pass
+    return t #no se coloca porque no debe devolver ningun token porque es un comentario
 
 #Definicion de comentario de una linea
 def t_COMMENTMULTIPLELINE(t):
-    r'\*(d\w\ \.\-\_\+\*\#\?)*/*'  #FALTA AGREGAR SIMBOLOS
+    r'\*.*/*'  #FALTA AGREGAR SIMBOLOS
+    #pass
     return t
 
 def t_NUMBER(t):
