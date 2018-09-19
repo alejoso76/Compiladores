@@ -281,18 +281,19 @@ def t_VARIABLE(t):
 #Definicion de comentario de una linea
 '''el simbolo . significa cualquier caracter'''
 def t_COMMENTONELINE(t):
-    r'\//.*'  #FALTA AGREGAR SIMBOLOS
+    r'//.*'  #FALTA AGREGAR SIMBOLOS
     #pass
     return t #no se coloca porque no debe devolver ningun token porque es un comentario
 
 #Definicion de comentario de una linea
+#el simbolo / es un delimitador es como para saber hasta donde llega la expresión regular
 def t_COMMENTMULTIPLELINE(t):
-    r'\*.*/*'  #FALTA AGREGAR SIMBOLOS
+    r'/\*(.|\n)*?\*/'  #FALTA AGREGAR SIMBOLOS
     #pass
     return t
 
 def t_NUMBER(t):
-    r'\d+(\.\d+)?'
+    r'-?\d+(\.\d+)?((E|e)-?d+(\.\d+))?'
     t.value = float(t.value)
     return t
 

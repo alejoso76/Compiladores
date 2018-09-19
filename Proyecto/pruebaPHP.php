@@ -2,12 +2,15 @@
 
 /*prueba 2!"#$%&/()=?¡'¿'0q211*/
 ?>
+
+
 <?php
 session_start();
 echo"<center>";
 echo"<img src=img1/logo.png width=272 height=78/>";
 if ($_SESSION['inicio_sesion'] == 'administrador') {
   $idproductob=$_POST["idproductob"];
+  $numer = -123E-22
   require("conexion.php");
   $conexion=$con;
   mysqli_select_db($conexion,"bd_farmacia");
