@@ -2,7 +2,7 @@ import ply.lex as lex
 import sys
 
 tokens = (
-    #Palabras reservadas
+    #Palabras reservadas y estructuras de control
     'IF',
     'ELSE',
     'ELSEIF',
@@ -44,6 +44,25 @@ tokens = (
     'VARIABLE', # $VAR
     'COMMENTONELINE',
     'COMMENTMULTIPLELINE',
+    'GOTO',
+    'FOREACH',
+    'CONTINUE',
+    'DECLARE',
+    'REQUIRE',
+    'INCLUDE_ONCE',
+    'REQUIRE_ONCE',
+    'NEW',
+    'EXTENDS',
+    'FINAL',
+    'IMPLEMENTS',
+    'INTERFACE',
+    'ABSTRACT',
+    'TRAIT',
+    'CONSTRUCTOR',
+    'DESTRUCTOR',
+    'STATIC',
+    'AS',
+
 
     #Simbolos
     'LESS', # <
@@ -82,7 +101,6 @@ tokens = (
     'COMMENTMC',  #*/   SI VA
     'DOUBLEPOINTS',
     'SPACE',
-
     #Otros
     'ID',
     'NUMBER',
@@ -234,15 +252,15 @@ def t_STRING(t):
     return t   
 
 def t_TRUE(t):
-    r'true'
+    r'TRUE|True|true'
     return t   
 
 def t_FALSE(t):
-    r'false'
+    r'FALSE|False|false'
     return t   
 
 def t_NULL(t):
-    r'null'
+    r'NULL|Null|null'
     return t 
 
 def t_VOID(t):
@@ -272,7 +290,76 @@ def t_PHPDECLARATION(t):
 def t_CHR(t):
     r'chr'
     return t
-  
+
+def t_GOTO(t):
+    r'goto'
+    return t
+
+def t_FOREACH(t):
+    r'foreach'
+    return t
+
+def t_DECLARE(t):
+    r'declare'
+    return t
+
+def t_REQUIRE(t):
+    r'require'
+    return t
+
+def t_REQUIRE_ONCE(t):
+    r'require_once'
+    return t
+
+def t_INCLUDE_ONCE(t):
+    r'include_once'
+    return t
+
+def t_NEW(t):
+    r'new'
+    return t
+
+def t_EXTENDS(t):
+    r'extends'
+    return t
+
+def t_IMPLEMENTS(t):
+    r'implements'
+    return t
+
+def t_INTERFACE(t):
+    r'interface'
+    return t
+
+def t_FINAL(t):
+    r'final'
+    return t
+
+def t_ABSTRACT(t):
+    r'abstract'
+    return t
+
+def t_TRAIT(t):
+    r'trait'
+    return t
+
+def t_CONSTRUCTOR(t):
+    r'__construct'
+    return t
+
+def t_DESTRUCTOR(t):
+    r'__destruct'
+    return t
+
+def t_STATIC(t):
+    r'static'
+    return t
+
+def t_AS(t):
+    r'as'
+    return t
+
+
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
     r'\$w+(_\d\w)*'
