@@ -355,9 +355,7 @@ def t_STATIC(t):
     r'static'
     return t
 
-def t_AS(t):
-    r'as'
-    return t
+
 
 
 #Definicion de una variable: $NombreVar
@@ -380,7 +378,7 @@ def t_COMMENTMULTIPLELINE(t):
     return t
 
 def t_NUMBER(t):
-    r'-?\d+(\.\d+)?((\*\*)-?d+(\.\d+))?'
+    r'-?\d+(\.\d+)?((\**)-?d+(\.\d+))?'
     t.value = float(t.value)
     return t
 
