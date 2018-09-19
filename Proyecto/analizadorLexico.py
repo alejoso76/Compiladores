@@ -293,7 +293,7 @@ def t_COMMENTMULTIPLELINE(t):
     return t
 
 def t_NUMBER(t):
-    r'-?\d+(\.\d+)?((E|e)-?d+(\.\d+))?'
+    r'-?\d+(\.\d+)?((\*\*)-?d+(\.\d+))?'
     t.value = float(t.value)
     return t
 
