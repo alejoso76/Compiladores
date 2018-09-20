@@ -288,7 +288,7 @@ def t_FUNCTION(t):
     return t
 
 def t_PHPDECLARATION(t):
-    r'<\?php'
+    r'<\?php|<\?PHP'
     return t
 
 def t_CHR(t):
@@ -365,7 +365,7 @@ def t_STATIC(t):
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
     #r'\$w+(_\d\w)*'
-    r'\$[A-Za-z_][\w_]*'
+    r'\$[A-Za-z_][\w_\d]*'
     return t
 
 #Definicion de comentario de una linea
