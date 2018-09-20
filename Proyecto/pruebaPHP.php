@@ -10,7 +10,7 @@ echo"<center>";
 echo"<img src=img1/logo.png width=272 height=78/>";
 if ($_SESSION['inicio_sesion'] == 'administrador') {
   $idproductob=$_POST["idproductob"];
-  $numer = -123**22
+  $numer = -123e22
   require("conexion.php");
   $conexion=$con;
   mysqli_select_db($conexion,"bd_farmacia");

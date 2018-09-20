@@ -41,7 +41,7 @@ tokens = (
     'FUNCTION',
     'PHPDECLARATION',
     'CHR',
-    'VARIABLE', # $VAR
+   'VARIABLE', #$VAR
     'COMMENTONELINE',
     'COMMENTMULTIPLELINE',
     'GOTO',
@@ -61,7 +61,6 @@ tokens = (
     'CONSTRUCTOR',
     'DESTRUCTOR',
     'STATIC',
-    'AS',
 
 
     #Simbolos
@@ -89,7 +88,6 @@ tokens = (
     'CSBRACKET', #Llave cierre ]
     'OCBRACKET', #Llave apertura { OPENING CURLY 
     'CCBRACKET', #Llave cierre }
-    'DOLLAR', #Simbolo de peso $
     'AMPERSAND', 
     'OPARENTHESIS', #Parentesis apertura (
     'CPARENTHESIS', #Parentesis apertura )
@@ -128,7 +126,6 @@ t_OSBRACKET=r'\['
 t_CSBRACKET=r'\]'
 t_OCBRACKET=r'\{'
 t_CCBRACKET=r'\}'
-t_DOLLAR=r'\$'
 t_AMPERSAND=r'&'
 t_OPARENTHESIS=r'\('
 t_CPARENTHESIS=r'\)'
@@ -360,11 +357,8 @@ def t_STATIC(t):
     return t
 
 
-
-
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
-    #r'\$w+(_\d\w)*'
     r'\$[A-Za-z_][\w_\d]*'
     return t
 
@@ -376,7 +370,7 @@ def t_COMMENTONELINE(t):
     return t #no se coloca porque no debe devolver ningun token porque es un comentario
 
 #Definicion de comentario de una linea
-#el simbolo / es un delimitador es como para saber hasta donde llega la expresión regular
+#el simbolo / es un delimitador es como para saber hasta donde llega la expresion regular
 
 def t_COMMENTMULTIPLELINE(t):
     r'/\*(.|\n)*?\*/'  #FALTA AGREGAR SIMBOLOS
@@ -384,7 +378,7 @@ def t_COMMENTMULTIPLELINE(t):
     return t
 
 def t_NUMBER(t):
-    r'-?\d+(\.\d+)?((\**)-?d+(\.\d+))?'
+    r'-?\d+(\.\d+)?([eE]-?d+(\.\d+))?'
     t.value = float(t.value)
     return t
 
