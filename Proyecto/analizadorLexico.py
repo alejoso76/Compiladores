@@ -136,7 +136,11 @@ t_TIMES=r'\*'
 t_BOOLAND=r'&&'
 t_BOOLOR=r'\|\|'
 t_DOUBLEPOINTS=r':'
-t_SPACE=r'\ '
+#t_SPACE=r'\ '
+
+def t_SPACE(t):
+    r'\ '
+    
 
 #----------------------------------------------------------------------------------
 def t_IF(t):
@@ -360,7 +364,8 @@ def t_STATIC(t):
 
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
-    r'\$w+(_\d\w)*'
+    #r'\$w+(_\d\w)*'
+    r'\$[A-Za-z_][\w_]*'
     return t
 
 #Definicion de comentario de una linea
@@ -372,6 +377,7 @@ def t_COMMENTONELINE(t):
 
 #Definicion de comentario de una linea
 #el simbolo / es un delimitador es como para saber hasta donde llega la expresión regular
+
 def t_COMMENTMULTIPLELINE(t):
     r'/\*(.|\n)*?\*/'  #FALTA AGREGAR SIMBOLOS
     #pass
