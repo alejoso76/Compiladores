@@ -40,6 +40,7 @@ tokens = (
     'ENDSWITCH',
     'FUNCTION',
     'PHPDECLARATION',
+    'PHPCLOSING',
     'CHR',
    'VARIABLE', #$VAR
     'COMMENTONELINE',
@@ -99,6 +100,9 @@ tokens = (
     'COMMENTMC',  # */
     'DOUBLEPOINTS',# :
     'SPACE',
+    'ARRAY_ASSIGNATION', #=>
+    'PLUSPLUS', #++
+    'MINUSMINUS', #--
     #Otros
     'ID',
     'NUMBER',
@@ -133,10 +137,15 @@ t_TIMES=r'\*'
 t_BOOLAND=r'&&'
 t_BOOLOR=r'\|\|'
 t_DOUBLEPOINTS=r':'
+t_ARRAY_ASSIGNATION=r'=>'
+t_PLUSPLUS=r'\+\+'
+t_MINUSMINUS=r'--'
 #t_SPACE=r'\ '
 
+#Se omite el espacio el retorno del espacio en el codigo
 def t_SPACE(t):
     r'\ '
+    #return t
     
 
 #----------------------------------------------------------------------------------
@@ -286,6 +295,10 @@ def t_FUNCTION(t):
 
 def t_PHPDECLARATION(t):
     r'<\?php|<\?PHP'
+    return t
+
+def t_PHPCLOSING(t):
+    r'\?>'
     return t
 
 def t_CHR(t):
