@@ -64,23 +64,23 @@ tokens = (
 
 
     #Simbolos
-    'LESS', # <
-    'LESSE', # <=  #SI VA
-    'GREAT', # >
-    'GREATE', # >=  #SI VA
+    'LESS',
+    'LESSE',
+    'GREAT', 
+    'GREATE', 
     'HASHTAG', 
     'SLASH', 
     #'OQUESTION', 
     'CQUESTION', 
     'PERCENTAGE',
     'EQUAL',
-    'EQUALE', # ==  #SI VA
+    'EQUALE',
     'PLUS',
 
     'UNDERSCORE', #Guion bajo _
     'SCORE',      #Guion medio -
-    'POINT',
-    'COMMA',
+    'POINT', #.
+    'COMMA',# ,
     'SEMICOLON',
     'DQUOTATION', #Comillas dobles "
     'SQUOTATION', #Comillas simples '
@@ -88,16 +88,16 @@ tokens = (
     'CSBRACKET', #Llave cierre ]
     'OCBRACKET', #Llave apertura { OPENING CURLY 
     'CCBRACKET', #Llave cierre }
-    'AMPERSAND', 
+    'AMPERSAND', #&
     'OPARENTHESIS', #Parentesis apertura (
     'CPARENTHESIS', #Parentesis apertura )
     'TIMES', #Signo de multiplicacion *
-    'BOOLAND', # &&  SI VA
-    'BOOLOR', # || SI VA
-    'COMMENTO', # // SI VA
-    'COMMENTMO',  #/* SI VA
-    'COMMENTMC',  #*/   SI VA
-    'DOUBLEPOINTS',
+    'BOOLAND', # && 
+    'BOOLOR', # ||
+    'COMMENTO', # //
+    'COMMENTMO',  # /*
+    'COMMENTMC',  # */
+    'DOUBLEPOINTS',# :
     'SPACE',
     #Otros
     'ID',
@@ -113,7 +113,7 @@ t_SLASH=r'/'
 t_CQUESTION=r'\?'
 t_PERCENTAGE=r'%'
 t_EQUAL=r'='
-t_EQUALE=r'==' #si va
+t_EQUALE=r'=='
 t_PLUS=r'\+'
 t_UNDERSCORE=r'_'
 t_SCORE=r'-'
@@ -365,27 +365,28 @@ def t_VARIABLE(t):
 #Definicion de comentario de una linea
 '''el simbolo . significa cualquier caracter'''
 def t_COMMENTONELINE(t):
-    r'//.*'  #FALTA AGREGAR SIMBOLOS
-    #pass
-    return t #no se coloca porque no debe devolver ningun token porque es un comentario
+    r'//.*'
+    pass
+  
 
 #Definicion de comentario de una linea
 #el simbolo / es un delimitador es como para saber hasta donde llega la expresion regular
+#Se usa el simbolo . para generar cualquier tipo de simbolo
 
 def t_COMMENTMULTIPLELINE(t):
-    r'/\*(.|\n)*?\*/'  #FALTA AGREGAR SIMBOLOS
-    #pass
-    return t
+    r'/\*(.|\n)*?\*/'
+    pass
 
+#Definicion de numero, ya sea entero o flotante y de tipo negativo
 def t_NUMBER(t):
-    r'-?\d+(\.\d+)?([eE]-?d+(\.\d+))?'
+    r'-?\d+(\.\d+)?'
     t.value = float(t.value)
     return t
-
+#Definciion para ID que se podrá usar en la declaración de funciones
 def t_ID(t):
     r'\w+(_\d\w)*'
     return t
-
+#Retorna el salto de linea
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
@@ -405,7 +406,7 @@ def test(data, lexer):
 
 lexer = lex.lex()
 
- 
+ #Funcion principal del sistema
 if __name__ == '__main__':
 	if (len(sys.argv) > 1):
 		fin = sys.argv[1]
