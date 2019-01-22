@@ -202,7 +202,7 @@ def t_AND(t):
     return t   
 
 def t_OR(t):
-    r'or'
+    r'or|\|\||OR'
     return t   
  
 def t_NOT(t):
