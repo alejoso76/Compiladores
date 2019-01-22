@@ -39,6 +39,7 @@ tokens = (
     'SWITCH',
     'ENDSWITCH',
     'FUNCTION',
+    #OPEN Y CLOSE TAG
     'PHPDECLARATION',
     'PHPCLOSING',
     'CHR',

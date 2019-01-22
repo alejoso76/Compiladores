@@ -22,3 +22,28 @@ precendence = {
     ('left', 'ELSE'),
     ('right', 'PRIVATE', 'PROTECTED', 'PUBLIC'),
 }
+
+#
+def p_program(p):
+    'program : PHPDECLARATION lista_declaraciones PHPCLOSING'
+    pass
+
+def p_lista_declaraciones(p):
+   '''lista_declaracion : lista_declaraciones  declaracion
+   					   | declaracion
+   '''
+   pass    
+
+def p_declaracion(p):
+	'''declaracion : var_declaracion
+				   | fun_declaracion
+				   | area fun_declaracion
+				   | header_declaracion
+				   | class_declaracion
+				   | echo_stmt
+				   | selection_stmt
+			       | iteration_stmt
+				   | typeclass
+	'''
+	pass    
+
