@@ -1,7 +1,9 @@
 import ply.yacc as yacc
 import os
-import analizadorLexico.py import tokens
+import sys
+from analizadorLexico.py import tokens
 
+VERBOSE = 1
 
 precendence = {
     ('left', 'INCLUDE', 'REQUIRE'),
@@ -12,9 +14,9 @@ precendence = {
     ('left', 'XOR'),
     ('left', 'AND'),
     ('nonassoc', 'EQUAL', 'DEQUAL'),
-    ('nonassoc', 'LESS', 'LESSEQUAL', 'GREATER', 'GREATEREQUAL'),
-    ('left', 'PLUS', 'MINUS'),
-    ('right', 'LBRACKET'),
+    ('nonassoc', 'LESS', 'LESSE', 'GREAT', 'GREATERE'),
+    ('left', 'PLUS', 'SCORE'),
+    ('right', 'OSBRACKET'),
     ('nonassoc', 'NEW', 'CLONE'),
     ('left', 'ELSEIF'),
     ('left', 'ELSE'),

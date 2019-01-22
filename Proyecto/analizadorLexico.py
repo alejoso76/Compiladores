@@ -62,6 +62,7 @@ tokens = (
     'CONSTRUCTOR',
     'DESTRUCTOR',
     'STATIC',
+    'CLONE',
 
 
     #Simbolos
@@ -74,6 +75,7 @@ tokens = (
     #'OQUESTION', 
     'CQUESTION', 
     'PERCENTAGE',
+    'DEQUAL',
     'EQUAL',
     'EQUALE',
     'PLUS',
@@ -109,15 +111,16 @@ tokens = (
 )
 
 t_LESS=r'<'
-t_LESSE=r'<='  
+#t_LESSE=r'<='  
 t_GREAT=r'>'
-t_GREATE=r'>='
+#t_GREATE=r'>='
 t_HASHTAG=r'\#'
 t_SLASH=r'/'
 t_CQUESTION=r'\?'
 t_PERCENTAGE=r'%'
 t_EQUAL=r'='
-t_EQUALE=r'=='
+#t_DEQUAL=r'!='
+#t_EQUALE=r'=='
 t_PLUS=r'\+'
 t_UNDERSCORE=r'_'
 t_SCORE=r'-'
@@ -333,6 +336,10 @@ def t_NEW(t):
     r'new'
     return t
 
+def t_CLONE(t):
+    r'clone'
+    return t    
+
 def t_EXTENDS(t):
     r'extends'
     return t
@@ -369,6 +376,21 @@ def t_STATIC(t):
     r'static'
     return t
 
+def t_LESSE(t):
+    r'<='
+    return t
+
+def t_GREATE(t):
+    r'>='
+    return t
+
+def t_DEQUAL(t):
+    r'!='
+    return t
+
+def t_EQUALE(t):
+    r'=='
+    return t    
 
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
