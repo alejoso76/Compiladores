@@ -1,20 +1,63 @@
 <?php
-//prueba!"#$%&/()=?¡{}
-
-/*prueba 2!"#$%&/()=?¡'¿'0q211*/
-session_start();
-echo"<center>";
-echo"<img src=img1/logo.png width=272 height=78/>";
-if ($_SESSION['inicio_sesion'] == 'administrador') {
-  $idproductob=$_POST["idproductob"];
-  int $numer = -123e22
-  require("conexion.php");
-  $conexion=$con;
-  mysqli_select_db($conexion,"bd_farmacia");
-  $resultadoa=mysqli_query($conexion,"select * from productos where id_producto='$idproductob'");
-  if(mysqli_num_rows($resultadoa)>0){
-  $buscar=mysqli_query($conexion,"select * from productos where id_producto='$idproductob'");
-  while($dato=mysqli_fetch_array($buscar))
-  {
-    
-  ?>
+require('somefile.php');
+$variable;
+$t;
+$suma;
+$booleano = true;
+echo "esto es un print, se muestra en pantalla";
+echo $verb;
+if($a < 20){
+  $v1 = 1;
+  echo $v1;
+  $suma = $v2 + $v3;
+}
+class ClaseSencilla{
+  public $var = 0;
+  public $var1 = 0;
+  protected function mostrarVar() {
+    return 0;
+  }
+}
+public function recursividad($a){
+  **$d;
+  &$d=$a;
+  if($a < 20){
+    $v1 = 1;
+    echo $v1;
+    $suma = $v2 + $v3;
+    if($a>0 and $b<1 || $s<$d OR $a==2){
+    }
+  }
+  public class prueba{
+    protected function abs(){
+      return 0;
+    }
+  }
+  echo "esto es un print, se muestra en pantalla";
+  switch($suma){
+    case 1:
+    $v1 = $variable + $v1;
+    break;
+    case 3:
+    $v2 = $variable + $v2;
+    break;
+    case 4:
+    $v3 = $variable;
+    break;
+    default:
+    $v4 = $variable;
+    break;
+  }
+  while($j<=$i){
+    $v1 = $variable + $v1;
+    echo "*&nbsp&nbsp";
+  }
+}
+prueba $a=new prueba(VOID);
+ //esto es un comentario corto
+ /*
+  * esto es un comentario largo deberia
+  * reconocerlo todo por saltos de linea
+  * que haga
+ */
+?>
