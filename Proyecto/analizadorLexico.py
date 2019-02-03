@@ -39,11 +39,12 @@ tokens = (
     'SWITCH',
     'ENDSWITCH',
     'FUNCTION',
+    'NAMEFUNCTION',
     #OPEN Y CLOSE TAG
     'PHPDECLARATION',
     'PHPCLOSING',
     'CHR',
-   'VARIABLE', #$VAR
+    'VARIABLE', #$VAR
     'COMMENTONELINE',
     'COMMENTMULTIPLELINE',
     'GOTO',
@@ -64,6 +65,8 @@ tokens = (
     'DESTRUCTOR',
     'STATIC',
     'CLONE',
+    'STRINGWR',
+    'STRINGGWR'
 
 
     #Simbolos
@@ -79,7 +82,9 @@ tokens = (
     'DEQUAL',
     'EQUAL',
     'EQUALE',
+    'IDENTIC',
     'PLUS',
+    'POW',
 
     'UNDERSCORE', #Guion bajo _
     'SCORE',      #Guion medio -
@@ -144,6 +149,7 @@ t_DOUBLEPOINTS=r':'
 t_ARRAY_ASSIGNATION=r'=>'
 t_PLUSPLUS=r'\+\+'
 t_MINUSMINUS=r'--'
+t_POW=r'\*\*'
 #t_SPACE=r'\ '
 
 #Se omite el espacio el retorno del espacio en el codigo
@@ -391,11 +397,26 @@ def t_DEQUAL(t):
 
 def t_EQUALE(t):
     r'=='
-    return t    
+    return t   
+
+def t_IDENTIC(t):
+    r'==='
+    return t   
 
 #Definicion de una variable: $NombreVar
 def t_VARIABLE(t):
     r'\$[A-Za-z_][\w_\d]*'
+    return t
+
+#Definicion de cadena 
+def t_STRINGWR(t):
+    r'\'[a-zA-Z_0-9\&\.\-\_\+\*\$\%\@\!\xc2\xa1\/\\\#\?\xc2\xbf\(\)\|\=\{\}\[\]\>\<\,\: \t]*\''
+    t.value = str(t.value)
+    return t
+
+def t_STRINGGWR(t):
+    r'\'[a-zA-Z_0-9\&\.\-\_\+\*\$\%\@\!\xc2\xa1\/\\\#\?\xc2\xbf\(\)\|\=\{\}\[\]\>\<\,\: \t]*\''
+    t.value = str(t.value)
     return t
 
 #Definicion de comentario de una linea
@@ -422,6 +443,10 @@ def t_NUMBER(t):
 def t_ID(t):
     r'\w+(_\d\w)*'
     return t
+#Retorna el nombre de un funcion, incluye numeros y letras
+def t_NAMEFUNCTION(t):
+    r'[a-zA-Z][a-zA-Z_\-0-9]*'
+    return t    
 #Retorna el salto de linea
 def t_newline(t):
     r'\n+'
