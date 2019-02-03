@@ -66,7 +66,7 @@ tokens = (
     'STATIC',
     'CLONE',
     'STRINGWR',
-    'STRINGGWR'
+    'STRINGGWR',
 
 
     #Simbolos

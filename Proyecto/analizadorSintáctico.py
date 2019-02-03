@@ -1,7 +1,7 @@
 import ply.yacc as yacc
 import os
 import sys
-from analizadorLexico.py import tokens
+from analizadorLexico import tokens
 
 VERBOSE = 1
 '''
@@ -27,16 +27,16 @@ precendence = {
 val=False
 #<?PHP Lista de declaracion de sentencias ?>
 def p_program(p):
-    'program : OPENTAG declaracion_sentencias CLOSETAG'
+    'program : PHPDECLARATION declaracion_sentencias PHPCLOSING'
     pass
 
-'''
-def p_inicio(p):
-    '''program : import declaracion_sentencias
-                | import
-                | declaracion_sentencias'''
-    pass
-'''
+
+#def p_inicio(p):
+ #   '''inicio : import declaracion_sentencias
+  #              | import
+   #             | declaracion_sentencias'''
+    #pass
+
 
 #Todas las posibles combinaciones
 def p_declaracion_sentencias(p):
@@ -249,9 +249,9 @@ def p_sentdowhile(p):
     pass
 
 #Importaciones
-def p_import(p):
-    '''import : INCLUDE STRINGGWR SEMICOLON'''
-    pass
+#def p_import(p):
+  #  '''import : INCLUDE STRINGGWR SEMICOLON'''
+   # pass
 
 #Vacio
 def p_empty(p):
