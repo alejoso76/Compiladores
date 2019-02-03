@@ -1,4 +1,5 @@
 import sys
+import time
 import ply.yacc as yacc
 from phpLEXER import tokens
 
@@ -336,6 +337,7 @@ def p_empty(p):
 #Error
 def p_error(p):
     if VERBOSE:
+        global val
         val = True
         if p is not None:
             print "\t ERROR de sintaxis - Token inesperado."
@@ -359,6 +361,21 @@ if __name__ == '__main__':
 
     f = open(fin, 'r')
     data = f.read()
+    print"\tAnalisis sintactico iniciado."
+    
+    #Animacion de carga
+    animation = "|/-\\"
+
+    for i in range(20):
+        time.sleep(0.1)
+        sys.stdout.write("\r" + animation[i % len(animation)])
+        sys.stdout.flush()
+
     parser.parse(data, tracking=True)
-    if not val :
- 	    print("Analisis sintactico correcto.")
+    #if val=='False':
+    print"\n\tAnalisis sintactico terminado."
+
+
+
+
+      
