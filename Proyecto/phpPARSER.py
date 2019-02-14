@@ -54,7 +54,7 @@ def p_declaration(p):
 #Impresiones echo
 def p_echo_stmt(p):
 	'''echo_stmt : echo_stmt ECHO STRING SEMICOLON
-				 | echo_stmt ECHO IDVAR SEMICOLON
+				 | echo_stmt ECHO VARIABLE SEMICOLON
 				 | empty
 				 | echo_stmt ECHO NUM SEMICOLON
 				 | echo_stmt ECHO boolean SEMICOLON
@@ -95,20 +95,20 @@ def p_area(p):
 
 #Declaracion de variables
 def p_var_declaration(p):
-	'''var_declaration : IDVAR SEMICOLON var_declaration
-					   | IDVAR SEMICOLON
-					   | TIMESTIMES IDVAR SEMICOLON
-					   | TIMESTIMES IDVAR SEMICOLON var_declaration
-					   | IDVAR EQUAL NUM SEMICOLON var_declaration
-					   | IDVAR EQUAL NUM SEMICOLON
-					   | IDVAR EQUAL boolean SEMICOLON var_declaration
-					   | IDVAR EQUAL boolean SEMICOLON
-					   | IDVAR EQUAL IDVAR SEMICOLON var_declaration
-					   | IDVAR EQUAL IDVAR SEMICOLON
-					   | AMPERSAND IDVAR SEMICOLON var_declaration
-					   | AMPERSAND IDVAR EQUAL IDVAR SEMICOLON  selection_stmt
-					   | AMPERSAND IDVAR SEMICOLON
-					   | IDVAR EQUAL simple_expression SEMICOLON
+	'''var_declaration : VARIABLE SEMICOLON var_declaration
+					   | VARIABLE SEMICOLON
+					   | TIMESTIMES VARIABLE SEMICOLON
+					   | TIMESTIMES VARIABLE SEMICOLON var_declaration
+					   | VARIABLE EQUAL NUM SEMICOLON var_declaration
+					   | VARIABLE EQUAL NUM SEMICOLON
+					   | VARIABLE EQUAL boolean SEMICOLON var_declaration
+					   | VARIABLE EQUAL boolean SEMICOLON
+					   | VARIABLE EQUAL VARIABLE SEMICOLON var_declaration
+					   | VARIABLE EQUAL VARIABLE SEMICOLON
+					   | AMPERSAND VARIABLE SEMICOLON var_declaration
+					   | AMPERSAND VARIABLE EQUAL VARIABLE SEMICOLON  selection_stmt
+					   | AMPERSAND VARIABLE SEMICOLON
+					   | VARIABLE EQUAL simple_expression SEMICOLON
 	'''
 	pass
 
@@ -135,8 +135,8 @@ def p_param_list(p):
 
 #Parametros solos
 def p_param(p):
-	'''param : IDVAR
-			 | IDVAR LBRACKET RBRACKET
+	'''param : VARIABLE
+			 | VARIABLE LBRACKET RBRACKET
 	'''
 	pass
 
@@ -227,17 +227,17 @@ def p_return_stmt(p):
 def p_expression(p):
 	'''expression : var EQUAL expression
 				  | simple_expression
-				  | var EQUAL AMPERSAND IDVAR
+				  | var EQUAL AMPERSAND VARIABLE
 				  | expression AND expression
 				  | expression OR expression
 
 	'''
 	pass
 
-#Idvar
+#VARIABLE
 def p_var(p):
-	'''var : IDVAR
-		   | IDVAR LBRACKET expression RBRACKET
+	'''var : VARIABLE
+		   | VARIABLE LBRACKET expression RBRACKET
 	'''
 	pass
 
@@ -303,7 +303,7 @@ def p_factor(p):
 			  | var
 			  | NUM
 			  | boolean
-			  | IDVAR LPAREN args RPAREN
+			  | VARIABLE LPAREN args RPAREN
 	'''
 	pass
 
@@ -331,7 +331,7 @@ def p_boolean(p):
 
 #Tipo de clase
 def p_tclass(p):
-	'typeclass : ID IDVAR EQUAL NEW constructor SEMICOLON'
+	'typeclass : ID VARIABLE EQUAL NEW constructor SEMICOLON'
 	pass
 
 #Constructor

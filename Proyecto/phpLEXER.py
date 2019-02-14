@@ -116,7 +116,7 @@ tokens = (
     'COMMENTS',
     'COMMENTS_C99',
     'ID',
-    'IDVAR',
+    'VARIABLE',
     'NUM',
     'STRING',
     'VOID',
@@ -485,7 +485,7 @@ def t_COMMENTS_C99(t):
     r'(\/\/|\#)(.)*?\n'
     t.lexer.lineno += 1
 
-def t_IDVAR(t):
+def t_VARIABLE(t):
     #r'\$\a-z+\A-Z+(\d\w)*'
     r'\$[A-Z\a-z\_][\w_\d\_\-]*'
     return t
