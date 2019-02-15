@@ -53,8 +53,17 @@ public function recursividad($a){
     $v1 = $variable + $v1;
     echo "*&nbsp&nbsp";
   }
-
 }
+
+for ($i = $a; $i < $a; $i++) {
+  echo "$i\n";
+}
+
+$i = 0;
+do {
+  echo $i;
+} while ($i > 0);
+
 prueba $a=new prueba(VOID);
  //Comentario corto
  /*
