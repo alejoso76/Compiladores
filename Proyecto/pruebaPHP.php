@@ -65,10 +65,11 @@ do {
 } while ($i > 0);
 
 prueba $a=new prueba(VOID);
+ #Comentario
  //Comentario corto
  /*
-  * Comentario
-  * largo
-  * largo
+   Comentario
+   largo
+   largo
  */
 ?>
